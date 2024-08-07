@@ -34,7 +34,7 @@ jobs:
           repository: ${{ secrets.ORGANIZATION_NAME }}/${{ inputs.repository_name }}
           path: "working_directory"
           token: ${{ secrets.ORGANIZATION_TOKEN }}
-          persist_credentials: true
+          persist-credentials: true
 
       # Runs a single command using the runners shell
       - name: Run Cookiecutter
