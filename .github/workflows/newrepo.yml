@@ -49,6 +49,8 @@ jobs:
           ORGANIZATION_TOKEN: ${{ secrets.ORGANIZATION_TOKEN }}
         run: |
           cd working_directory
+          git config user.mail "ccm1092@hotmail.com"
+          git config user.name "Caio Melo"
           git checkout -b repository-initialization
           git add .
           git commit -m "Initial Commit"
