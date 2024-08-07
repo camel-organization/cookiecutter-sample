@@ -37,19 +37,17 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run Cookiecutter
         run: |
+          mkdir working_directory
           cd working_directory
           pip install cookiecutter
           cookiecutter ../
-
-      - name: Create repo code
-        run: |
-          cd working_directory
           git init
           git add .
           git commit -m "Initial commit"
           git branch -M main
           git remote add origin https://github.com/${{ secrets.ORGANIZATION_NAME }}/${{ inputs.repository_name }}.git
           git push -u origin main
+          
     #   - name: Create Pull Request
     #     env:
     #       ORGANIZATION_NAME: ${{ secrets.ORGANIZATION_NAME }}
