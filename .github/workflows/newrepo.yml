@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       repository_name:
+        description: Name of the Repository to be created.
         required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -43,14 +44,14 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run Cookiecutter
+        working-directory: ./working_directory
         run: |
-          cd working_directory
           pip install cookiecutter
           cookiecutter --no-input ../
 
       - name: Create Pull Request
+        working-directory: ./working_directory
         run: |
-          cd working_directory
           git config user.email "12129319+cmelo05@users.noreply.github.com"
           git config user.name "Caio Melo"
           git checkout -b repository-initialization
